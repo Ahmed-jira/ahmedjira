@@ -1,0 +1,24 @@
+# This code sample uses the 'requests' library:
+# http://docs.python-requests.org
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+
+url = "https://team-8d76z3l8z8vr.atlassian.net//rest/api/3/project"
+
+API_TOKEN= "ATATT3xFfGF0Mb55n20Ju3prbZVjfL4I1gqBU6xI16l5ONjhC8llCsNdXHaO-vj1liAMnI2iY-llTB2SHRyIQS05UaFJfGlcOzLRxuO1IolVFDYxZyMQhhmJQS8exydqsZlBOiz1pDVKvOgDGCsSwHGE9BYkn-iQmqa6r9bAVUIzV7thDOYrAaU=D4E74EF6"
+
+auth = HTTPBasicAuth("aalabdul7581@gmail.com",
+
+headers = {
+  "Accept": "application/json"
+}
+
+response = requests.request(
+   "GET",
+   url,
+   headers=headers,
+   auth=auth
+)
+
+print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
